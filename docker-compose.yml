@@ -1,8 +1,13 @@
-#version: '3.8'
 services:
   ml_env:
     build: .
     ports:
-     - "8888:8888"
+      - "8888:8888"
+      - "5000:5000"
     volumes:
-    - ./notebooks:/home/jupyteruser/app/notebooks
+      - ./notebooks:/home/jupyteruser/app/notebooks
+      - ./data:/home/jupyteruser/app/data
+      - mlflow_data:/home/jupyteruser/app/mlruns
+
+volumes:
+  mlflow_data:
