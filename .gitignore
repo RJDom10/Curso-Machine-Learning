@@ -30,3 +30,8 @@ desktop.ini
 # Environment
 .env
 *.env.local
+
+# Soluciones de ejercicios
+.soluciones/
+*/.soluciones/
+**/soluciones/
