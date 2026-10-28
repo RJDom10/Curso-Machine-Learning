@@ -1,102 +1,111 @@
-# 🤖 Curso Machine Learning
+# Curso de Machine Learning
 
-Entorno de desarrollo completo y dockerizado para aprendizaje y práctica de **Machine Learning moderno** — desde ML clásico con scikit-learn hasta Deep Learning con TensorFlow y tracking de experimentos con MLflow.
-
----
-
-## ✨ Características
-
-- 🐳 **Entorno Dockerizado** — configuración reproducible, sin conflictos de dependencias
-- 📓 **JupyterLab** — IDE interactivo para notebooks de ML
-- 🧠 **TensorFlow + Keras** — framework de Deep Learning
-- 📊 **MLflow** — tracking de experimentos, métricas y modelos
-- 📈 **scikit-learn** — algoritmos clásicos de ML
-- 🎨 **Matplotlib + Seaborn** — visualización de datos
-- 🐼 **Pandas + NumPy** — manipulación y análisis de datos
+Entorno de desarrollo integral y basado en contenedores para el estudio y la implementación de técnicas de Machine Learning. La arquitectura abarca desde algoritmos predictivos clásicos con scikit-learn hasta modelos de Deep Learning con TensorFlow, incorporando además el rastreo sistemático del ciclo de vida del modelo mediante MLflow.
 
 ---
 
-## 🚀 Inicio Rápido
+## Características del Entorno
 
-### Requisitos
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) instalado y ejecutándose
+* **Contenedorización**: Configuración reproducible y aislada de dependencias mediante el uso de Docker.
+* **Entorno de Desarrollo Integrado**: Implementación de JupyterLab como IDE para la ejecución interactiva de cuadernos de trabajo.
+* **Deep Learning**: Soporte nativo para frameworks de vanguardia, incluyendo TensorFlow y Keras.
+* **Gestión de Experimentos (MLOps)**: Plataforma MLflow configurada para el monitoreo de ejecuciones, métricas y versionado de modelos.
+* **Machine Learning Clásico**: Suite completa de algoritmos de clasificación, regresión y agrupación mediante scikit-learn.
+* **Visualización Analítica**: Capacidades de graficación y análisis exploratorio con Matplotlib y Seaborn.
+* **Procesamiento de Datos**: Manipulación eficiente de estructuras de datos y cálculo numérico con Pandas y NumPy.
 
-### Levantar el entorno
+---
+
+## Implementación y Despliegue
+
+### Prerrequisitos
+* Requiere la instalación y ejecución activa de [Docker Desktop](https://www.docker.com/products/docker-desktop/) en el sistema host.
+
+### Inicialización del Entorno
+Para aprovisionar y levantar los contenedores, ejecute las siguientes instrucciones en su terminal:
 
 ```bash
-# Clonar el repositorio
+# Clonar el repositorio del proyecto
 git clone https://github.com/RJDom10/Curso-Machine-Learning.git
 cd Curso-Machine-Learning
 
-# Construir y arrancar
+# Construir las imágenes y desplegar los servicios
 docker compose up --build
 ```
 
-### Acceder a los servicios
+### Acceso a los Servicios
 
-| Servicio | URL | Descripción |
-|----------|-----|-------------|
-| 📓 JupyterLab | http://localhost:8888 | Notebooks de ML (sin token) |
-| 📊 MLflow UI | http://localhost:5000 | Dashboard de experimentos |
+Una vez que los contenedores estén operativos, los servicios estarán disponibles en los siguientes endpoints locales:
 
-> Para iniciar MLflow UI, abre una terminal en JupyterLab y ejecuta:
+| Servicio | Endpoint Local | Descripción |
+|----------|----------------|-------------|
+| JupyterLab | `http://localhost:8888` | Interfaz principal para la edición de notebooks de ML (acceso configurado sin token). |
+| MLflow UI | `http://localhost:5000` | Panel de control para el monitoreo y registro de experimentos. |
+
+> **Nota Operativa**: Para inicializar la interfaz gráfica de MLflow, es necesario abrir una sesión de terminal dentro de JupyterLab y ejecutar el siguiente comando:
 > ```bash
 > mlflow ui --host 0.0.0.0 --port 5000
 > ```
 
 ---
 
-## 📁 Estructura del Proyecto
+## Estructura del Repositorio
 
-```
+La arquitectura del proyecto está organizada de la siguiente manera para separar la infraestructura, los datos y el código:
+
+```text
 Curso-Machine-Learning/
-├── 📄 Dockerfile              # Definición de la imagen Docker
-├── 📄 docker-compose.yml      # Orquestación de servicios
-├── 📄 requirements.txt        # Dependencias de Python
-├── 📄 README.md               # Este archivo
-├── 📂 notebooks/              # Jupyter Notebooks del curso
-│   └── Intro01.ipynb          # Notebook introductorio
-├── 📂 data/                   # Datasets
+├── Dockerfile              # Especificación de la imagen base de Docker
+├── docker-compose.yml      # Archivo de orquestación de servicios y puertos
+├── requirements.txt        # Manifiesto de dependencias de Python
+├── README.md               # Documentación principal del repositorio
+├── notebooks/              # Directorio destinado a los Jupyter Notebooks de estudio
+│   └── Intro01.ipynb       # Cuaderno de trabajo introductorio
+├── data/                   # Directorio para el almacenamiento de conjuntos de datos locales
 │   └── creditApproval_dataset.csv
-└── 📂 docs/                   # Documentación
-    ├── ESTRUCTURA.md           # Descripción detallada de cada archivo
-    ├── DOCKER.md               # Guía de comandos Docker
-    ├── MLFLOW.md               # Guía de uso de MLflow
-    └── TENSORFLOW.md           # Guía de TensorFlow/Keras
+└── docs/                   # Directorio de documentación técnica complementaria
+    ├── ESTRUCTURA.md       # Arquitectura y explicación detallada de cada módulo
+    ├── DOCKER.md           # Referencia operativa y gestión de comandos Docker
+    ├── MLFLOW.md           # Manual de implementación y rastreo con MLflow
+    └── TENSORFLOW.md       # Guía práctica para el uso de TensorFlow y Keras
 ```
 
 ---
 
-## 🛠️ Stack Tecnológico
+## Arquitectura Tecnológica
 
-| Tecnología | Versión | Uso |
-|------------|---------|-----|
-| Python | 3.10 | Lenguaje principal |
-| TensorFlow | ≥ 2.16 | Deep Learning |
-| Keras | ≥ 3.3 | API de alto nivel para redes neuronales |
-| scikit-learn | ≥ 1.4 | ML clásico (regresión, clasificación, clustering) |
-| MLflow | ≥ 2.14 | Tracking de experimentos y modelos |
-| Pandas | ≥ 2.2 | Análisis de datos |
-| NumPy | ≥ 1.26 | Cómputo numérico |
-| Matplotlib | ≥ 3.8 | Visualización |
-| Seaborn | ≥ 0.13 | Visualización estadística |
-| JupyterLab | ≥ 4.1 | IDE interactivo |
-| Docker | — | Contenedorización |
+El entorno garantiza la estabilidad utilizando las siguientes versiones de software y librerías:
 
----
-
-## 📚 Documentación
-
-Consulta la carpeta [`docs/`](docs/) para guías detalladas:
-
-- [📁 Estructura del Proyecto](docs/ESTRUCTURA.md) — qué hace cada archivo
-- [🐳 Guía de Docker](docs/DOCKER.md) — comandos y solución de problemas
-- [🧪 Guía de MLflow](docs/MLFLOW.md) — tracking de experimentos con ejemplos
-- [🧠 Guía de TensorFlow](docs/TENSORFLOW.md) — deep learning con ejemplos prácticos
+| Tecnología | Versión Mínima | Propósito en el Entorno |
+|------------|----------------|-------------------------|
+| Python | 3.10 | Lenguaje de programación principal. |
+| TensorFlow | ≥ 2.16 | Arquitectura y entrenamiento de modelos de Deep Learning. |
+| Keras | ≥ 3.3 | API de alto nivel para el diseño de redes neuronales. |
+| scikit-learn | ≥ 1.4 | Implementación de modelos de Machine Learning tradicional. |
+| MLflow | ≥ 2.14 | Rastreo del ciclo de vida de los modelos y métricas de evaluación. |
+| Pandas | ≥ 2.2 | Limpieza, estructuración y análisis de datos tabulares. |
+| NumPy | ≥ 1.26 | Operaciones algebraicas y cómputo numérico de alto rendimiento. |
+| Matplotlib | ≥ 3.8 | Generación de visualizaciones de datos estáticas. |
+| Seaborn | ≥ 0.13 | Visualización avanzada de datos con enfoque estadístico. |
+| JupyterLab | ≥ 4.1 | Entorno de desarrollo interactivo (IDE). |
+| Docker | — | Orquestación, aislamiento y contenedorización del entorno. |
 
 ---
 
-## 💡 Ejemplo Rápido
+## Referencias de Documentación
+
+Para acceder a información técnica exhaustiva sobre cada componente, consulte los manuales ubicados en el directorio `docs/`:
+
+* [Estructura del Proyecto](docs/ESTRUCTURA.md): Explicación funcional detallada de los archivos y subdirectorios.
+* [Guía de Operaciones Docker](docs/DOCKER.md): Listado de comandos de gestión y resolución de incidencias frecuentes.
+* [Guía de Implementación MLflow](docs/MLFLOW.md): Metodología de rastreo de experimentos con ejemplos prácticos.
+* [Guía de Referencia TensorFlow](docs/TENSORFLOW.md): Fundamentos y aplicación de modelos de Deep Learning.
+
+---
+
+## Ejemplo de Implementación Estándar
+
+El siguiente bloque de código demuestra un flujo de trabajo típico: el entrenamiento de un clasificador Random Forest incorporando el registro automático de métricas y el versionado del modelo a través de MLflow:
 
 ```python
 import pandas as pd
@@ -105,43 +114,50 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 import mlflow
 
-# Cargar datos
+# Carga y estructuración del conjunto de datos
 df = pd.read_csv("data/creditApproval_dataset.csv")
 X = df.drop("target", axis=1)
 y = df["target"]
 
-# Split
+# Partición de los datos (Conjuntos de Entrenamiento y Evaluación)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-# Entrenar con tracking
+# Configuración del espacio de trabajo en MLflow
 mlflow.set_experiment("credit-approval")
+
+# Ejecución del entrenamiento y registro de telemetría
 with mlflow.start_run():
+    # Instanciación y entrenamiento del modelo
     model = RandomForestClassifier(n_estimators=100)
     model.fit(X_train, y_train)
+    
+    # Evaluación del rendimiento predictivo
     acc = accuracy_score(y_test, model.predict(X_test))
+    
+    # Registro de métricas y artefactos en el servidor de MLflow
     mlflow.log_metric("accuracy", acc)
     mlflow.sklearn.log_model(model, "model")
-    print(f"Accuracy: {acc:.4f}")
+    
+    print(f"Precisión del modelo (Accuracy): {acc:.4f}")
 ```
 
 ---
 
-## 🤝 Contribuir
+## Lineamientos de Contribución
 
-1. Fork el repositorio
-2. Crea tu rama (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit tus cambios (`git commit -m 'Agregar nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Abre un Pull Request
+Se fomenta la colaboración en este proyecto. Para contribuir, siga el flujo de trabajo de control de versiones estándar:
 
----
-
-## 📝 Licencia
-
-Este proyecto es para fines educativos.
+1. Realice un *Fork* del repositorio a su cuenta personal.
+2. Cree una rama independiente para el desarrollo de su funcionalidad (`git checkout -b feature/nueva-funcionalidad`).
+3. Confirme sus modificaciones locales (`git commit -m 'Implementación de nueva funcionalidad'`).
+4. Envíe los cambios a su repositorio remoto (`git push origin feature/nueva-funcionalidad`).
+5. Genere un *Pull Request* para iniciar el proceso de revisión de código.
 
 ---
 
-<p align="center">
-  Hecho con ❤️ para aprender Machine Learning
-</p>
+## Licencia del Proyecto
+
+El código fuente, la arquitectura del entorno y la documentación de este repositorio están provistos exclusivamente para fines académicos y educativos.
+
+---
+*Proyecto de infraestructura desarrollado para el estudio continuo y la profesionalización en técnicas analíticas y de Machine Learning.*
